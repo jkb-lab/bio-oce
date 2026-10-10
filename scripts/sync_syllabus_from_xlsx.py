@@ -32,11 +32,14 @@ def parse_sheet(zf, shared_strings, sheet_name='xl/worksheets/sheet1.xml'):
         for cell in row.findall('main:c', NS):
             address = cell.get('r', '')
             col = ''.join([c for c in address if c.isalpha()])
+            cell_type = cell.get('t')
+            if cell_type == 'inlineStr':
+                row_values[col] = ''.join(t.text or '' for t in cell.findall('.//main:t', NS))
+                continue
             value_element = cell.find('main:v', NS)
             if value_element is None:
                 continue
             raw_value = value_element.text or ''
-            cell_type = cell.get('t')
             if cell_type == 's':
                 value = shared_strings[int(raw_value)]
             elif cell_type == 'b':

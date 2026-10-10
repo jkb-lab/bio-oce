@@ -1,20 +1,21 @@
 // SYLLABUS_START
 const weeks = [
-  {w:1,title:"Discovering the oceans: history and overview of biological oceanography",ch:"Part 1",topics:["History of oceanographic exploration","From ancient mariners to satellite altimetry","Why study the ocean? Scale, heat capacity, and life support"]},
-  {w:2,title:"Ocean basins: plate tectonics & bathymetry",ch:"Part 1",topics:["Seafloor spreading and mid-ocean ridges","Bathymetric provinces: shelf, slope, abyssal plain","Tools: multibeam sonar, seismic profiling"]},
-  {w:3,title:"Seawater: Temperature, salinity, and density",ch:"Part 1",topics:["Conservative and non-conservative properties","Equation of state; density stratification","Dissolved gases; oxygen minimum zones"]},
-  {w:4,title:"A spinning earth: coriolis effect, tides, gyres, currents, and eddies",ch:"Part 1",topics:["Earth's rotation, Ekman transport, and Ekman spirals","Geostrophic balance: tides and gyres","Western boundary current intensification"]},
-  {w:5,title:"Ocean circulation: wind and density as drivers for ocean circulation",ch:"Part 1",topics:["Density gradients: permanent vs. seasonal pycnoclines","Wind, surface currents, upwelling, and downwelling","Consequences for global productivity"]},
-  {w:6,title:"Nutrient circulation: movement and distribution of key nutrients",ch:"Part 2",topics:["Why the surface is light-rich but nutrient-poor","Subtropical gyres; ITCZ and trade winds","Thermohaline circulation and global heat transport"]},
-  {w:7,title:"Life in the Ocean: life's origins, photosynthesis & primary productivity",ch:"Part 2",topics:["Light in the ocean: Beer–Lambert, euphotic depth","Phytoplankton physiology and growth kinetics","Monitoring NPP: Satellites and in-situ ROVs, CTDs, animal-borne sensors"]},
-  {w:8,title:"Trophic flows in the ocean: energy, carbon & nutrients through the food web",ch:"Part 2",topics:["Food web topology; trophic efficiency (~10%)","Microbial loop and dissolved organic carbon","Redfield ratio and its significance"]},
-  {w:9,title:"Midterm & Oscillations in physical processes: ENSO, PDO & variability",ch:"Part 2",topics:["ENSO mechanics: Walker circulation, thermocline tilt","PDO and its modulation of ENSO signal","Biological response in the California Current"]},
-  {w:10,title:"Humans and the ocean: carbon cycle & the ocean's biological carbon pump",ch:"Part 3",topics:["From Mauna Loa to Station PAPA: Carbon dioxide over time","The ocean's biological carbon pump","Marine Carbon Dioxide Removal and Climate Mitigation"]},
-  {w:11,title:"Ocean carbon chemistry & ocean acidification",ch:"Part 3",topics:["Carbonate system: CO₂, H₂CO₃, HCO₃⁻, CO₃²⁻","Revelle factor and buffering capacity","Ocean acidification: impacts on calcifiers"]},
-  {w:12,title:"Fisheries science: population dynamics & management",ch:"Part 3",topics:["Surplus production models; MSY concept","Age-structured models; stock-recruitment","California Current fisheries and climate variability"]},
-  {w:13,title:"Science to impact: data visualization to drive climate adaptation and mitigation",ch:"Part 3",topics:["Biodiversity monitoring: CalCOFI, IFCB, long-term time series","Carbon sequestration: biological pump and marine CDR","Nature-based solutions: NBS-Adapts, ShoreCast, coastal resilience"],current:true,hasLecture:true},
-  {w:14,title:"Ocean ecosystems: holistic, dynamic management for ecosystems",ch:"Part 3",topics:["Environmental justice and traditional knowledge","Policy and management: challenges and opportunities","Guest lecture: Science to policy"]},
-  {w:15,title:"Synthesis: The ocean in the Anthropocene",ch:"Part 3",topics:["AI for Ocean Sciences: challenges and opportunities","Final exam and student research presentation office hours","Student research presentations"]}
+  {w:1,title:"Intros & Origin of Earth",ch:"(Ch. 1; App. III)",topics:["Course intro; what is oceanography (1.1)","History of exploration; scientific inquiry (1.2-1.3)","Origin of Earth, oceans and life; latitude and longitude (1.4-1.7; App. III)"]},
+  {w:2,title:"Plate Tectonics",ch:"(Ch. 2)",topics:["Evidence for continental drift and plate tectonics (2.1-2.2)","Plate boundary features (2.3)","Hotspots, seamounts, coral reefs; past and future Earth (2.4-2.6)"]},
+  {w:3,title:"Marine Provinces & Marine Sediments and Geochemistry",ch:"(Ch. 3 & Ch. 4)",topics:["Mapping the seafloor; hypsographic curve; continental margins (3.1-3.3)","Deep-ocean basins and mid-ocean ridges (3.4-3.5)","Marine sediments: types, distribution, resources (4.1-4.8)"]},
+  {w:4,title:"Physical and Chemical Properties of Water",ch:"(Ch. 5)",topics:["Unusual properties of water (5.1-5.2)","Salinity and seawater pH (5.3-5.5)","Temperature, salinity and density structure; desalination (5.6-5.8)"]},
+  {w:5,title:"Exam 1",ch:"(Ch. 1-5)",topics:["Review: Ch. 1-2","Review: Ch. 3-4","Review: Ch. 5"]},
+  {w:6,title:"Air Sea Interactions & Ocean Circulation",ch:"(Ch. 6 & Ch. 7)",topics:["Seasons, solar heating, Coriolis, global winds (6.1-6.5)","Ocean-driven weather and climate incl. ENSO; sea ice (6.6-6.7)","Surface currents, upwelling, deep circulation (7.1-7.5)"]},
+  {w:7,title:"Waves",ch:"(Ch. 8)",topics:["Wave causes, motion, characteristics (8.1-8.3)","Wind waves, surf zone, rogue waves (8.4-8.5)","Tsunami; wave power (8.6-8.7)"]},
+  {w:8,title:"Tides",ch:"(Ch. 9)",topics:["Tide-generating forces; monthly cycle (9.1-9.2)","Tides in the ocean; tidal patterns (9.3-9.4)","Coastal tidal phenomena; tidal power (9.5-9.6)"]},
+  {w:9,title:"Coastal Geomorphodynamics",ch:"(Ch. 10)",topics:["Coastal regions; sand movement (10.1-10.2)","Erosional and depositional features; sea level change (10.3-10.4)","U.S. coasts; hard stabilization and alternatives (10.5-10.7)"]},
+  {w:10,title:"Exam 2",ch:"(Ch. 6-10)",topics:["Review: Ch. 6-7","Review: Ch. 8-9","Review: Ch. 10"]},
+  {w:11,title:"Biological Oceanography I",ch:"(Ch. 12)",topics:["Classification of life; marine species diversity (12.1-12.3)","Adaptations to the physical environment (12.4)","Divisions of the marine environment (12.5)"]},
+  {w:12,title:"Biological Oceanography II",ch:"(Ch. 13)",topics:["Primary productivity; photosynthetic organisms (13.1-13.2)","Regional productivity; nutrients (13.3)","Energy transfer, feeding relationships, fisheries (13.4-13.6)"]},
+  {w:13,title:"Marine Biology I & II",ch:"(Ch. 14; Ch. 15 survey)",topics:["Pelagic adaptations: buoyancy, locomotion, predator avoidance (14.1-14.3)","Marine mammals; gray whale migration (14.4-14.5)","Benthic communities: rocky shore, sediment, deep sea (15.1-15.5)"]},
+  {w:14,title:"Marine Pollution & The Oceans and Climate Change",ch:"(Ch. 11 & Ch. 16)",topics:["Ocean ownership, coastal waters, wetlands (11.1-11.4)","Marine pollution (11.5-11.6)","Climate system, greenhouse effect, ocean changes, solutions (16.1-16.5)"]},
+  {w:15,title:"Exam 3",ch:"(Ch. 11-16)",topics:["Review: Ch. 11-12","Review: Ch. 13-14","Review: Ch. 15-16"]},
+  {w:16,title:"Comprehensive Final Exam",ch:"(ALL)",topics:["Cumulative: equal content from Exams 1-3"]}
 ];
 // SYLLABUS_END
 
